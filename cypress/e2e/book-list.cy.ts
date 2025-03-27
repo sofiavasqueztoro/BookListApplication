@@ -1,4 +1,9 @@
 describe('Book List Prueba', () => {
+  
+  beforeEach(() => {
+    cy.visit('http://localhost:4200/'); 
+  });
+  
     let booksFromBackend: string | any[] = [];
   
     before(() => {
@@ -9,15 +14,13 @@ describe('Book List Prueba', () => {
           cy.log(`Se obtuvieron ${booksFromBackend.length} libros del backend`);
         });
     });
-  
-    beforeEach(() => {
-      cy.visit('/books');
-    });
+
   
     it('should display the book list', () => {
       cy.get('app-book-list').should('exist');
       cy.log('La página de libros cargó correctamente');
-    });
+  });
+  
   
     it('should display the correct number of books', () => {
       cy.get('div.col.mb-2')
