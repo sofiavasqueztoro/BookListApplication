@@ -73,7 +73,7 @@ describe('Book List Prueba', () => {
       });
     });
   
-    //No se pueden borrar libros si tiene autor asociado, lo dejo asi o lo cambio en el back?
+    //No se pueden borrar libros si tiene autor asociado
     it('should correctly update the book list if a book is removed', () => {
       cy.request('GET', 'http://localhost:8080/api/books')
         .then((response) => {
