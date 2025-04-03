@@ -1,12 +1,11 @@
-describe('Book List Prueba', () => {
-  
+describe('Prueba Formulario', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:4200/'); 
-  });
+    cy.visit('/')
+  })
+
+  let booksFromBackend: string | any[] = [];
   
-    let booksFromBackend: string | any[] = [];
-  
-    before(() => {
+    it('get back',()=> {
       cy.request('GET', 'http://localhost:8080/api/books')
         .then((response) => {
           expect(response.status).to.eq(200);
@@ -121,6 +120,4 @@ describe('Book List Prueba', () => {
           });
         });
     });
-  });
-  
-
+})
